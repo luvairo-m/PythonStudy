@@ -1,17 +1,32 @@
 def main():
-    data = [int(i) for i in input().split()]
-    data.sort()
+    nums, idx = trim(input()), 0
 
-    idx = 0
+    while idx < len(nums):
+        if nums[idx] != ' ':
+            num, start = "", idx
+            
+            while idx < len(nums) and nums[idx] != ' ':
+                num += nums[idx]
+                idx += 1
 
-    while (idx < len(data) - 1):
-        if data[idx] == data[idx + 1]:
-            print(True)
-            return
+            if num in nums[:start]:
+                print(True)
+                return
+        else:
+            idx += 1
 
-        idx += 1
-    
-    print(False)
+    print(False)         
+
+def trim(line: str) -> str:
+    left, right = 0, len(line) - 1
+
+    while line[left] == ' ':
+        left += 1
+
+    while line[right] == ' ':
+        right -= 1
+
+    return line[left : right + 1]
 
 
 if __name__ == "__main__":
