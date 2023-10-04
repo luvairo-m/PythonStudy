@@ -1,21 +1,14 @@
 def main():
     line, sepr = input(), '.'
 
-    idx1 = first_sep_idx(0, sepr, line)
-    idx2 = first_sep_idx(idx1 + 1, sepr, line)
+    previous = len(line)
 
-    x, y, z = line[:idx1], line[idx1 + 1:idx2], line[idx2 + 1:]
+    for i in range(len(line) - 1, -1, -1):
+        if line[i] == sepr:
+            print(line[i + 1:previous])
+            previous = i
 
-    print(trim(z))
-    print(trim(y))
-    print(trim(x))
-
-def first_sep_idx(start: int, sepr: str, line: str) -> int:
-    for i in range(start, len(line)):
-        if (line[i] == sepr):
-            return i
-
-    return -1
+    print(line[:previous])
 
 def trim(line: str) -> str:
     left, right = 0, len(line) - 1
