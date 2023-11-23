@@ -5,7 +5,7 @@ def is_correct(password: str) -> bool:
     """
     Метод проверки пароля на корректность.
     :param password: Пароль: строковое значение.
-    :return: Корректный ли пароль: истинна или ложь.
+    :return: Корректный ли пароль: истина или ложь.
 
     >>> is_correct("rtG3FG!Tr^e")
     True
